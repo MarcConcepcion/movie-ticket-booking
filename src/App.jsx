@@ -8,10 +8,116 @@ import Notification from "./components/Notification";
 import "./App.css";
 
 const MOVIES = [
-  { id: 1, title: "Galactic Drift", genre: "Sci-Fi", duration: "2h 14m", price: 320, rating: "PG-13", poster: "🚀" },
-  { id: 2, title: "The Last Petal", genre: "Romance", duration: "1h 58m", price: 280, rating: "PG", poster: "🌹" },
-  { id: 3, title: "Iron Protocol", genre: "Action", duration: "2h 31m", price: 350, rating: "R", poster: "⚙️" },
-  { id: 4, title: "Whisper Wood", genre: "Horror", duration: "1h 47m", price: 300, rating: "R", poster: "🌲" },
+  {
+    id: 1,
+    title: "Inside Out 2",
+    genre: "Animation",
+    duration: "1h 40m",
+    price: 320,
+    rating: "PG",
+    poster: "🎭",
+    year: 2024,
+    studio: "Pixar / Disney",
+  },
+  {
+    id: 2,
+    title: "Deadpool & Wolverine",
+    genre: "Action / Comedy",
+    duration: "2h 8m",
+    price: 380,
+    rating: "R",
+    poster: "⚔️",
+    year: 2024,
+    studio: "Marvel Studios",
+  },
+  {
+    id: 3,
+    title: "Moana 2",
+    genre: "Animation",
+    duration: "1h 40m",
+    price: 320,
+    rating: "PG",
+    poster: "🌊",
+    year: 2024,
+    studio: "Walt Disney Animation",
+  },
+  {
+    id: 4,
+    title: "Wicked",
+    genre: "Musical / Fantasy",
+    duration: "2h 40m",
+    price: 350,
+    rating: "PG",
+    poster: "🧙‍♀️",
+    year: 2024,
+    studio: "Universal Pictures",
+  },
+  {
+    id: 5,
+    title: "Dune: Part Two",
+    genre: "Sci-Fi / Epic",
+    duration: "2h 46m",
+    price: 380,
+    rating: "PG-13",
+    poster: "🏜️",
+    year: 2024,
+    studio: "Warner Bros.",
+  },
+  {
+    id: 6,
+    title: "Despicable Me 4",
+    genre: "Animation / Comedy",
+    duration: "1h 34m",
+    price: 300,
+    rating: "PG",
+    poster: "🍌",
+    year: 2024,
+    studio: "Illumination / Universal",
+  },
+  {
+    id: 7,
+    title: "Beetlejuice Beetlejuice",
+    genre: "Comedy / Horror",
+    duration: "1h 44m",
+    price: 340,
+    rating: "PG-13",
+    poster: "👻",
+    year: 2024,
+    studio: "Warner Bros.",
+  },
+  {
+    id: 8,
+    title: "Gladiator II",
+    genre: "Action / Epic",
+    duration: "2h 28m",
+    price: 370,
+    rating: "R",
+    poster: "🛡️",
+    year: 2024,
+    studio: "Paramount Pictures",
+  },
+  {
+    id: 9,
+    title: "Sonic the Hedgehog 3",
+    genre: "Action / Adventure",
+    duration: "1h 49m",
+    price: 300,
+    rating: "PG",
+    poster: "💨",
+    year: 2024,
+    studio: "Paramount Pictures",
+  },
+  {
+    id: 10,
+    title: "Mufasa: The Lion King",
+    genre: "Animation / Drama",
+    duration: "1h 58m",
+    price: 330,
+    rating: "PG",
+    poster: "🦁",
+    year: 2024,
+    studio: "Walt Disney Pictures",
+  },
 ];
 
 const ROWS = ["A", "B", "C", "D", "E", "F"];
@@ -121,7 +227,7 @@ export default function App() {
             <div className="no-selection">
               <div className="no-selection-icon">🎟️</div>
               <h2>Select a Movie to Begin</h2>
-              <p>Choose a film from the list to pick your seats and book your tickets.</p>
+              <p>Choose from {MOVIES.length} now-showing films to pick your seats and book your tickets.</p>
             </div>
           )}
         </section>

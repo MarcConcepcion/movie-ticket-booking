@@ -189,6 +189,7 @@ body {
 .badge.rating { background: #2a1e1e; color: var(--error); }
 
 .movie-duration { font-size: 0.78rem; color: var(--text-muted); margin-bottom: 2px; }
+.movie-studio { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 2px; }
 .movie-price { font-size: 0.82rem; color: var(--accent); font-weight: 600; }
 
 .selected-indicator {

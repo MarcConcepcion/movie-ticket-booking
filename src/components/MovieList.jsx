@@ -18,7 +18,8 @@ export default function MovieList({ movies, selectedMovie, onSelectMovie }) {
               <span className="badge genre">{movie.genre}</span>
               <span className="badge rating">{movie.rating}</span>
             </div>
-            <p className="movie-duration">⏱ {movie.duration}</p>
+            <p className="movie-duration">⏱ {movie.duration} &nbsp;·&nbsp; 📅 {movie.year}</p>
+            <p className="movie-studio">🎬 {movie.studio}</p>
             <p className="movie-price">₱{movie.price.toLocaleString()} / seat</p>
           </div>
           {selectedMovie?.id === movie.id && (
