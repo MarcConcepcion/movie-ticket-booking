@@ -1,10 +1,11 @@
 export default function MovieList({ movies, selectedMovie, onSelectMovie }) {
   return (
     <div className="movie-list">
-      <h2 className="section-title">Now Showing</h2>
-      {movies.length === 0 && (
-        <p className="no-results">No movies match your search.</p>
-      )}
+      <p className="movie-list-count">
+        {movies.length === 0
+          ? "No results found"
+          : `Showing ${movies.length} film${movies.length !== 1 ? "s" : ""}`}
+      </p>
       {movies.map((movie) => (
         <div
           key={movie.id}
@@ -17,6 +18,7 @@ export default function MovieList({ movies, selectedMovie, onSelectMovie }) {
             <div className="movie-meta">
               <span className="badge genre">{movie.genre}</span>
               <span className="badge rating">{movie.rating}</span>
+              <span className={`badge year-badge ${movie.year === 2025 ? "new" : ""}`}>{movie.year}</span>
             </div>
             <p className="movie-duration">⏱ {movie.duration} &nbsp;·&nbsp; 📅 {movie.year}</p>
             <p className="movie-studio">🎬 {movie.studio}</p>

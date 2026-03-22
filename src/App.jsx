@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Navbar from "./components/Navbar";
 import MovieList from "./components/MovieList";
 import SeatGrid from "./components/SeatGrid";
@@ -8,6 +8,7 @@ import Notification from "./components/Notification";
 import "./App.css";
 
 const MOVIES = [
+  // ── 2024 ──────────────────────────────────────────────
   {
     id: 1,
     title: "Inside Out 2",
@@ -22,7 +23,7 @@ const MOVIES = [
   {
     id: 2,
     title: "Deadpool & Wolverine",
-    genre: "Action / Comedy",
+    genre: "Action",
     duration: "2h 8m",
     price: 380,
     rating: "R",
@@ -44,7 +45,7 @@ const MOVIES = [
   {
     id: 4,
     title: "Wicked",
-    genre: "Musical / Fantasy",
+    genre: "Musical",
     duration: "2h 40m",
     price: 350,
     rating: "PG",
@@ -55,7 +56,7 @@ const MOVIES = [
   {
     id: 5,
     title: "Dune: Part Two",
-    genre: "Sci-Fi / Epic",
+    genre: "Sci-Fi",
     duration: "2h 46m",
     price: 380,
     rating: "PG-13",
@@ -66,7 +67,7 @@ const MOVIES = [
   {
     id: 6,
     title: "Despicable Me 4",
-    genre: "Animation / Comedy",
+    genre: "Animation",
     duration: "1h 34m",
     price: 300,
     rating: "PG",
@@ -77,7 +78,7 @@ const MOVIES = [
   {
     id: 7,
     title: "Beetlejuice Beetlejuice",
-    genre: "Comedy / Horror",
+    genre: "Horror",
     duration: "1h 44m",
     price: 340,
     rating: "PG-13",
@@ -88,7 +89,7 @@ const MOVIES = [
   {
     id: 8,
     title: "Gladiator II",
-    genre: "Action / Epic",
+    genre: "Action",
     duration: "2h 28m",
     price: 370,
     rating: "R",
@@ -99,7 +100,7 @@ const MOVIES = [
   {
     id: 9,
     title: "Sonic the Hedgehog 3",
-    genre: "Action / Adventure",
+    genre: "Adventure",
     duration: "1h 49m",
     price: 300,
     rating: "PG",
@@ -110,13 +111,124 @@ const MOVIES = [
   {
     id: 10,
     title: "Mufasa: The Lion King",
-    genre: "Animation / Drama",
+    genre: "Animation",
     duration: "1h 58m",
     price: 330,
     rating: "PG",
     poster: "🦁",
     year: 2024,
     studio: "Walt Disney Pictures",
+  },
+  // ── 2025 ──────────────────────────────────────────────
+  {
+    id: 11,
+    title: "Lilo & Stitch",
+    genre: "Adventure",
+    duration: "1h 48m",
+    price: 350,
+    rating: "PG",
+    poster: "👽",
+    year: 2025,
+    studio: "Walt Disney Pictures",
+  },
+  {
+    id: 12,
+    title: "Demon Slayer: Infinity Castle",
+    genre: "Animation",
+    duration: "2h 15m",
+    price: 390,
+    rating: "R",
+    poster: "🗡️",
+    year: 2025,
+    studio: "Ufotable / Crunchyroll",
+  },
+  {
+    id: 13,
+    title: "How to Train Your Dragon",
+    genre: "Adventure",
+    duration: "2h 5m",
+    price: 340,
+    rating: "PG",
+    poster: "🐉",
+    year: 2025,
+    studio: "Universal / DreamWorks",
+  },
+  {
+    id: 14,
+    title: "F1: The Movie",
+    genre: "Action",
+    duration: "2h 35m",
+    price: 380,
+    rating: "PG-13",
+    poster: "🏎️",
+    year: 2025,
+    studio: "Apple Original Films",
+  },
+  {
+    id: 15,
+    title: "Superman",
+    genre: "Action",
+    duration: "2h 9m",
+    price: 370,
+    rating: "PG-13",
+    poster: "🦸",
+    year: 2025,
+    studio: "DC Studios / Warner Bros.",
+  },
+  {
+    id: 16,
+    title: "Jurassic World: Rebirth",
+    genre: "Sci-Fi",
+    duration: "2h 1m",
+    price: 370,
+    rating: "PG-13",
+    poster: "🦕",
+    year: 2025,
+    studio: "Universal Pictures",
+  },
+  {
+    id: 17,
+    title: "Sinners",
+    genre: "Horror",
+    duration: "2h 17m",
+    price: 360,
+    rating: "R",
+    poster: "🩸",
+    year: 2025,
+    studio: "Warner Bros.",
+  },
+  {
+    id: 18,
+    title: "Dog Man",
+    genre: "Animation",
+    duration: "1h 27m",
+    price: 280,
+    rating: "PG",
+    poster: "🐶",
+    year: 2025,
+    studio: "DreamWorks / Universal",
+  },
+  {
+    id: 19,
+    title: "Zootopia 2",
+    genre: "Animation",
+    duration: "1h 49m",
+    price: 330,
+    rating: "PG",
+    poster: "🦊",
+    year: 2025,
+    studio: "Walt Disney Animation",
+  },
+  {
+    id: 20,
+    title: "Mission: Impossible — The Final Reckoning",
+    genre: "Action",
+    duration: "2h 49m",
+    price: 400,
+    rating: "PG-13",
+    poster: "💣",
+    year: 2025,
+    studio: "Paramount Pictures",
   },
 ];
 
@@ -141,11 +253,26 @@ export default function App() {
   const [notification, setNotification] = useState(null);
   const [bookingComplete, setBookingComplete] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [filterGenre, setFilterGenre] = useState("All");
+  const [filterYear, setFilterYear] = useState("All");
+  const [filterRating, setFilterRating] = useState("All");
 
-  const filteredMovies = MOVIES.filter((m) =>
-    m.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    m.genre.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const genres = ["All", ...new Set(MOVIES.map((m) => m.genre))];
+  const years = ["All", "2025", "2024"];
+  const ratings = ["All", "PG", "PG-13", "R"];
+
+  const filteredMovies = useMemo(() => {
+    return MOVIES.filter((m) => {
+      const matchSearch =
+        m.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        m.genre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        m.studio.toLowerCase().includes(searchQuery.toLowerCase());
+      const matchGenre = filterGenre === "All" || m.genre === filterGenre;
+      const matchYear  = filterYear  === "All" || m.year === parseInt(filterYear);
+      const matchRating= filterRating=== "All" || m.rating === filterRating;
+      return matchSearch && matchGenre && matchYear && matchRating;
+    });
+  }, [searchQuery, filterGenre, filterYear, filterRating]);
 
   const handleSelectMovie = (movie) => {
     setSelectedMovie(movie);
@@ -174,6 +301,9 @@ export default function App() {
     setSelectedSeats([]);
     setSelectedMovie(null);
     setBookingComplete(false);
+    setFilterGenre("All");
+    setFilterYear("All");
+    setFilterRating("All");
     showNotif("Selection cleared.", "info");
   };
 
@@ -190,6 +320,11 @@ export default function App() {
 
   const total = selectedMovie ? selectedSeats.length * selectedMovie.price : 0;
 
+  const activeFilters =
+    (filterGenre !== "All" ? 1 : 0) +
+    (filterYear  !== "All" ? 1 : 0) +
+    (filterRating!== "All" ? 1 : 0);
+
   return (
     <div className="app">
       <Navbar searchQuery={searchQuery} onSearch={(e) => setSearchQuery(e.target.value)} />
@@ -197,14 +332,58 @@ export default function App() {
       {notification && <Notification message={notification.message} type={notification.type} />}
 
       <main className="main-layout">
+
+        {/* ── LEFT PANEL: fixed height, movie list scrolls inside ── */}
         <section className="left-panel">
-          <MovieList
-            movies={filteredMovies}
-            selectedMovie={selectedMovie}
-            onSelectMovie={handleSelectMovie}
-          />
+          <div className="left-panel-inner">
+
+            {/* Filter Bar */}
+            <div className="filter-bar">
+              <div className="filter-bar-title">🎬 Now Showing</div>
+              <div className="filter-header">
+                <span className="filter-title">🎛 Filters</span>
+                {activeFilters > 0 && (
+                  <button
+                    className="filter-clear"
+                    onClick={() => { setFilterGenre("All"); setFilterYear("All"); setFilterRating("All"); }}
+                  >
+                    Clear ({activeFilters})
+                  </button>
+                )}
+              </div>
+              <div className="filter-row">
+                <label className="filter-label">Genre</label>
+                <select className="filter-select" value={filterGenre} onChange={(e) => setFilterGenre(e.target.value)}>
+                  {genres.map((g) => <option key={g}>{g}</option>)}
+                </select>
+              </div>
+              <div className="filter-row">
+                <label className="filter-label">Year</label>
+                <select className="filter-select" value={filterYear} onChange={(e) => setFilterYear(e.target.value)}>
+                  {years.map((y) => <option key={y}>{y}</option>)}
+                </select>
+              </div>
+              <div className="filter-row">
+                <label className="filter-label">Rating</label>
+                <select className="filter-select" value={filterRating} onChange={(e) => setFilterRating(e.target.value)}>
+                  {ratings.map((r) => <option key={r}>{r}</option>)}
+                </select>
+              </div>
+            </div>
+
+            {/* Scrollable Movie List */}
+            <div className="movie-list-scroll">
+              <MovieList
+                movies={filteredMovies}
+                selectedMovie={selectedMovie}
+                onSelectMovie={handleSelectMovie}
+              />
+            </div>
+
+          </div>
         </section>
 
+        {/* ── RIGHT PANEL: content fits naturally, no forced scroll ── */}
         <section className="right-panel">
           {selectedMovie ? (
             <>
@@ -227,10 +406,11 @@ export default function App() {
             <div className="no-selection">
               <div className="no-selection-icon">🎟️</div>
               <h2>Select a Movie to Begin</h2>
-              <p>Choose from {MOVIES.length} now-showing films to pick your seats and book your tickets.</p>
+              <p>Choose from {MOVIES.length} now-showing films across 2024 &amp; 2025.</p>
             </div>
           )}
         </section>
+
       </main>
 
       {showModal && (
