@@ -91,7 +91,7 @@ const MOVIES = [
     price: 340,
     rating: "PG-13",
     poster: "👻",
-    posterImg: `${TMDB}/kKgQzkqE3R4OnNIEHMCwmHQzDiI.jpg`,
+    posterImg: `https://upload.wikimedia.org/wikipedia/en/7/76/Beetlejuice_%281988_film_poster%29.png`,
     year: 2024,
     studio: "Warner Bros.",
   },
@@ -127,7 +127,7 @@ const MOVIES = [
     price: 330,
     rating: "PG",
     poster: "🦁",
-    posterImg: `${TMDB}/lurEK87kukWNaHd0zYnsi3yzJrs.jpg`,
+    posterImg: `https://m.media-amazon.com/images/M/MV5BYjBkOWUwODYtYWI3YS00N2I0LWEyYTktOTJjM2YzOTc3ZDNlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg`,
     year: 2024,
     studio: "Walt Disney Pictures",
   },
@@ -140,7 +140,7 @@ const MOVIES = [
     price: 350,
     rating: "PG",
     poster: "👽",
-    posterImg: `${TMDB}/7YFbn5uuvl7eFbOFDnCqyUEaQub.jpg`,
+    posterImg: `https://upload.wikimedia.org/wikipedia/en/5/56/Lilo_%26_Stitch_2025_Theatrical_Poster.jpg`,
     year: 2025,
     studio: "Walt Disney Pictures",
   },
@@ -152,7 +152,7 @@ const MOVIES = [
     price: 390,
     rating: "R",
     poster: "🗡️",
-    posterImg: `${TMDB}/xUC3fHa3mMQPwGe7MsAS7RqFgXz.jpg`,
+    posterImg: `https://m.media-amazon.com/images/M/MV5BOGQ3YWUzYjEtMTJiYy00ZjQ0LWI0YjktYjhiNGVhNGExYTM3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg`,
     year: 2025,
     studio: "Ufotable / Crunchyroll",
   },
@@ -164,7 +164,7 @@ const MOVIES = [
     price: 340,
     rating: "PG",
     poster: "🐉",
-    posterImg: `${TMDB}/q1gEoGrGEZlTHbOSm1TfPH7THzW.jpg`,
+    posterImg: `https://upload.wikimedia.org/wikipedia/en/8/80/How_To_Train_Your_Dragon_2025_Poster.jpg`,
     year: 2025,
     studio: "Universal / DreamWorks",
   },
@@ -176,7 +176,7 @@ const MOVIES = [
     price: 380,
     rating: "PG-13",
     poster: "🏎️",
-    posterImg: `${TMDB}/gHEGeHCVRMFqJeKBqY1ZQmQkjf3.jpg`,
+    posterImg: `https://resizing.flixster.com/5Q22ZbwHwgkaD60RZvLq-j6oE9c=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzL2YyYmY3OGU3LWY2ZDgtNGNhYy04NmJhLWFiZGM2YjM3YTI1Zi5qcGc=`,
     year: 2025,
     studio: "Apple Original Films",
   },
@@ -188,7 +188,7 @@ const MOVIES = [
     price: 370,
     rating: "PG-13",
     poster: "🦸",
-    posterImg: `${TMDB}/miZwMpFBMgFrTdXjfGSCmiS7v87.jpg`,
+    posterImg: `https://m.media-amazon.com/images/M/MV5BOGMwZGJiM2EtMzEwZC00YTYzLWIxNzYtMmJmZWNlZjgxZTMwXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg`,
     year: 2025,
     studio: "DC Studios / Warner Bros.",
   },
@@ -200,7 +200,7 @@ const MOVIES = [
     price: 370,
     rating: "PG-13",
     poster: "🦕",
-    posterImg: `${TMDB}/b9EkX5gXBCjNtYMl2tX4EaVKOHc.jpg`,
+    posterImg: `https://dx35vtwkllhj9.cloudfront.net/universalstudios/jurassic-world-rebirth/images/regions/us/updates1/onesheet.jpg`,
     year: 2025,
     studio: "Universal Pictures",
   },
@@ -212,7 +212,7 @@ const MOVIES = [
     price: 360,
     rating: "R",
     poster: "🩸",
-    posterImg: `${TMDB}/v9acaWVCfaZiLIG5RKDNRK2KJZQ.jpg`,
+    posterImg: `https://m.media-amazon.com/images/M/MV5BNjIwZWY4ZDEtMmIxZS00NDA4LTg4ZGMtMzUwZTYyNzgxMzk5XkEyXkFqcGc@._V1_.jpg`,
     year: 2025,
     studio: "Warner Bros.",
   },
@@ -224,7 +224,7 @@ const MOVIES = [
     price: 280,
     rating: "PG",
     poster: "🐶",
-    posterImg: `${TMDB}/xg27NrXi7VXCGUr7MG75UqLl6Vg.jpg`,
+    posterImg: `https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Dog_Man_film_poster.jpg/250px-Dog_Man_film_poster.jpg`,
     year: 2025,
     studio: "DreamWorks / Universal",
   },
@@ -236,7 +236,7 @@ const MOVIES = [
     price: 330,
     rating: "PG",
     poster: "🦊",
-    posterImg: `${TMDB}/qOhFfZkCqRrEOTy8xLOq2EvHJLr.jpg`,
+    posterImg: `https://m.media-amazon.com/images/M/MV5BYjg1Mjc3MjQtMTZjNy00YWVlLWFhMWEtMWI3ZTgxYjJmNmRlXkEyXkFqcGc@._V1_.jpg`,
     year: 2025,
     studio: "Walt Disney Animation",
   },
@@ -248,7 +248,7 @@ const MOVIES = [
     price: 400,
     rating: "PG-13",
     poster: "💣",
-    posterImg: `${TMDB}/jvLxIWH8gkbMXUGKHiQhNqzGmTO.jpg`,
+    posterImg: `https://m.media-amazon.com/images/M/MV5BZGQ5NGEyYTItMjNiMi00Y2EwLTkzOWItMjc5YjJiMjMyNTI0XkEyXkFqcGc@._V1_.jpg`,
     year: 2025,
     studio: "Paramount Pictures",
   },
@@ -354,8 +354,6 @@ export default function App() {
       {notification && <Notification message={notification.message} type={notification.type} />}
 
       <main className="main-layout">
-
-        {/* ── LEFT PANEL: fixed height, movie list scrolls inside ── */}
         <section className="left-panel">
           <div className="left-panel-inner">
 
@@ -393,7 +391,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Scrollable Movie List */}
             <div className="movie-list-scroll">
               <MovieList
                 movies={filteredMovies}
@@ -405,7 +402,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* ── RIGHT PANEL: content fits naturally, no forced scroll ── */}
+        
         <section className="right-panel">
           {selectedMovie ? (
             <>
@@ -428,7 +425,7 @@ export default function App() {
             <div className="no-selection">
               <div className="no-selection-icon">🎟️</div>
               <h2>Select a Movie to Begin</h2>
-              <p>Choose from {MOVIES.length} now-showing films across 2024 &amp; 2025.</p>
+              <p>Choose from {MOVIES.length} now-showing films.</p>
             </div>
           )}
         </section>
